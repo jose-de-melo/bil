@@ -2,9 +2,12 @@
   "name": "bil",
   "version": "1.0.0",
   "description": "Projeto final do curso \"Chatbots: da teoria ao deploy, com IBM Watson\" do projeto de extensão Laboratório de Redes de Conhecimento (aprovado no edital PIAEX 003/2018) – Instituto Federal do Sudeste de Minas Gerais, Campus Barbacena.",
-  "main": "index.js",
+  "main": "src/loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "production": "pm2 start src/loader.js --name page_chat-api",
+    "production-stop": "pm2 start src/loader.js --name page_chat-api"
+  
   },
   "repository": {
     "type": "git",
