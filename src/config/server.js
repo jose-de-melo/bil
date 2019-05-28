@@ -17,7 +17,7 @@ const port = 5432
 const bodyParser = require('body-parser');
 const express = require('express');
 const allowCors = require('./cors');
-const queryParser = require('express-query-init');
+const queryParser = require('express-query-int');
 
 // Criando a instância inicial do servidor Express
 const serverExpress = express()
@@ -42,7 +42,7 @@ serverExpress.use(queryParser())
 
 // Rodando o servidor
 serverExpress.listen(port, function(){
-    console.log("Servidor rodando na porta ${port}")
+    console.log(`Servidor rodando na porta ${port}`)
 })
 
 // Após isso, o servidor estará todando em http://localhost:5432/, porém, sem rotas.
