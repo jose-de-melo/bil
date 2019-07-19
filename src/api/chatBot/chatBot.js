@@ -9,8 +9,8 @@ require('dotenv').config()
  */
 const watson = require('watson-developer-cloud')
 
-// Importando o módulo pageChatService.
-const pageChatService = require('../pageChat/pageChatService')
+// Importando o módulo chatService.
+const chatService = require('../chat/chatService')
 
 
 
@@ -31,39 +31,79 @@ const assistant = new watson.AssistantV1({
  * Caso não exista, a conversa será criada.
  * É uma promise, o que indica que ela irá rodar em segundo plano para ser resolvida.
  */
-construirCenario = (input) => new Promise((resolve, reject) => {
+recoverOrCreateChat = (input) => new Promise((resolve, reject) => {
     /**
      * Pesquisa o contextID informado, se não existir, cria uma nova conversa e a retorna usando o resolve().
      */
-    pageChatService.find({session_id: input.session_id}, (err, data) =>{
+    chatService.find({session_id: input.session_id}, (err, data) =>{
         if(err || data.length == 0 || data == undefined){
-            let pageChat = new pageChatService({
+            let chat = new chatService({
                 input: input.message || undefined,
                 session_id: undefined
             })
 
             // Define a sessão como o ID do objeto
-            pageChat.session_id = pageChat._id;
-
+            chat.session_id = chat._id;
 
             // Retorna a sessão criada
-            resolve(pageChat);
+            resolve(chat);
         }
 
         // Se existir, retorna a conversa encontrada.
         else{
-            pageChat = data[0];
-            pageChat.input = input.message || undefined;
+            chat = data[0];
+            chat.input = input.message || undefined;
 
-            resolve(pageChat)
+            resolve(chat)
         }
+    })
+    
+})
+
+/*
+rebuildIntentsEntitysContext = (watsonObjec) => new Promise((resolve, reject) =>{
+
+})
+**/
 
 
+/**
+ * Principal função do módulo, recebe um input do usuário, verifica se o mesmo já tem uma conversa iniciada, envia a mensagem para o Watson, trata a resposta
+ * e a devolve ao usuário.
+ */
+module.exports.analiseBuildMessage = (input) => new Promise((resolve, reject) =>{
+    recoverOrCreateChat(input).then((user) => {
+        assistant.message({
+            workspace_id: process.env.WATSON_WORKSPACE_ID,
+            session_id: user.session_id,
+            context: user.context,
+            input: user.input
+        }, (err, res) =>{
+            if(err) {
+                console.log(err)
+                reject(err)
+            }else{
+                user.messages.push({
+                    message: input.message.text
+                })
 
+                res.output.text.forEach(message =>{
+                    user.messages.push({
+                        message: message,
+                        base: 'received'
+                    })
+                })
 
+                user.context = res.context
 
+                resolve(user)
+            }
+        })
     })
 })
+
+
+
 
 
 

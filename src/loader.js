@@ -8,5 +8,8 @@ const server = require('./config/server');
 // Importando a conexão com o banco de dados MongoDB
 require('./config/database')
 
+// Importando as rotas para o servidor criado.
+require('./config/routes')(server)
+
 
 

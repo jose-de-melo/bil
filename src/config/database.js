@@ -17,5 +17,5 @@ mongoose.Promise = global.Promise
 
 
 // Estabelecendo a conexão e exportando 
-module.exports = mongoose.connect('mongo://localhost/db-bil', {useMongoClient: true})
+module.exports = mongoose.connect('mongodb://localhost/db-bil', {useMongoClient: true})
 

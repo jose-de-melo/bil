@@ -1,5 +1,9 @@
 // Porta na qual o servidor irá rodar
-const port = 5432
+const options = {
+    host: "localhost",
+    port: process.env.PORT || 5432
+};
+
 
 
 /**
@@ -40,12 +44,16 @@ serverExpress.use(allowCors)
 serverExpress.use(queryParser())
 
 
+// Definindo o diretório que contém arquivos estátiscos.
+serverExpress.use(express.static('public'));
+
 // Rodando o servidor
-serverExpress.listen(port, function(){
-    console.log(`Servidor rodando na porta ${port}`)
+serverExpress.listen(options.port, function(){
+    console.log(`Servidor rodando na porta ${options.port}`)
 })
 
 // Após isso, o servidor estará todando em http://localhost:5432/, porém, sem rotas.
+
 
 
 // Exporta o servidor para que ele possa ser usado em outros lugares da aplicação. 
