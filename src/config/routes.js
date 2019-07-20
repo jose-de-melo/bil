@@ -3,11 +3,24 @@
  */
 const express = require('express')
 
+// Biblioteca usada para listar o conteúdo de diretórios
+const fs = require('fs')
+
+
 /**
- * Importando as bibliotecas chatService e chatBot
+ * Importando as bibliotecas chatService, chatBot e listfile
  */
 const chatService = require('../api/chat/chatService')
 const chatBot = require('../api/chatBot/chatBot')
+
+
+/**
+ * Definindo o caminho do diretório onde estão os arquivos
+ * 
+ * __dirname é uma string que armazena o diretório onde está o arquivo
+ */
+const path = __dirname.slice(0, __dirname.indexOf('/src/')) + process.env.DOCS_PATH
+
 
 /**
  * Módulo para criar as rotas para o servidor recebido por parâmetro
@@ -45,8 +58,31 @@ module.exports = function (server) {
 
     })
 
-    api.post('/docs', (req, res) =>{
-        
+    api.get('/docs', (req, res) =>{
+        const resp = {} 
+        fs.readdir(path, (err, paths) => {
+            if(err){
+                console.log(err)
+                res.status(500).json({'message': 'Erro! Não foi possível listar os arquivos disponíveis.', 'erros': err})
+            }
+            else{
+                resp['files'] = []
+                if(paths.length > 0){
+                    let file
+
+                    paths.forEach(element => {
+                        file = {
+                            'name': element,
+                            'url': process.env.SERVICE_URL + '/documents/' + element
+                        }
+
+                        resp['files'].push(file)
+                    });
+
+                }
+                res.status(200).json(resp)
+            }
+        })
     })
 
 
