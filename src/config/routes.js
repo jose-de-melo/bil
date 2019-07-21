@@ -13,6 +13,8 @@ const fs = require('fs')
 const chatService = require('../api/chat/chatService')
 const chatBot = require('../api/chatBot/chatBot')
 
+let typesDocs = ['checklists', 'manuals', 'open-process', 'others']
+
 
 /**
  * Definindo o caminho do diretório onde estão os arquivos
@@ -32,6 +34,9 @@ module.exports = function (server) {
     // Garante que todas as rotas tenham uma URL inicial igual
     server.use('/api', api)
 
+    /**
+     * Rota para realizar interações com o chatbot.
+     */
     api.post('/chat', (req, res) => {
         if(!req.body.message){
             res.status(403).send({errors: ['No message provided.']})
@@ -58,6 +63,9 @@ module.exports = function (server) {
 
     })
 
+    /**
+     * Rota para fornecer arquivos públicos.
+     */
     api.get('/docs', (req, res) =>{
         const resp = {} 
         fs.readdir(path, (err, paths) => {
@@ -72,8 +80,9 @@ module.exports = function (server) {
 
                     paths.forEach(element => {
                         file = {
-                            'name': element,
-                            'url': process.env.SERVICE_URL + '/documents/' + element
+                            'name': element.slice(element.indexOf('- ')+2),
+                            'url': process.env.SERVICE_URL + '/documents/' + element,
+                            'type-doc': typesDocs[parseInt(element.slice(0, element.indexOf(' -'))) - 1]
                         }
 
                         resp['files'].push(file)
@@ -88,5 +97,4 @@ module.exports = function (server) {
 
     // Registrando rota para o chatService
     chatService.register(api, '/chat')
-
 }
