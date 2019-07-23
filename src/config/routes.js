@@ -82,7 +82,8 @@ module.exports = function (server) {
                         file = {
                             'name': element.slice(element.indexOf('- ')+2),
                             'url': process.env.SERVICE_URL + '/documents/' + element,
-                            'type-doc': typesDocs[parseInt(element.slice(0, element.indexOf(' -'))) - 1]
+                            'type-doc': typesDocs[parseInt(element.slice(0, element.indexOf(' -'))) - 1],
+                            'extension': element.slice(element.lastIndexOf('.') + 1, element.length)
                         }
 
                         resp['files'].push(file)
