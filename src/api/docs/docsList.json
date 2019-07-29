@@ -131,7 +131,17 @@
             "extension": "docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de concorrência SRP."
+        },
+
+        {
+            "name": "Manual: Planilha de Custos de Terceirização",
+            "extension": "PDF",
+            "type_doc": "manual",
+            "description": "Manual para elaboração de planilha de custos para terceirização."
         }
+
+
+        
 
 
         
