@@ -1,4 +1,10 @@
 /**
+ * Importando o JSON com as informações sobre cada documento.
+ */
+const docs = require('../api/docs/docsList.json')
+
+
+/**
  * Biblioteca para criar os serviços de uma API
  */
 const express = require('express')
@@ -7,13 +13,14 @@ const express = require('express')
 const fs = require('fs')
 
 
+
 /**
- * Importando as bibliotecas chatService, chatBot e listfile
+ * Importando as bibliotecas chatService e chatBot
  */
 const chatService = require('../api/chat/chatService')
 const chatBot = require('../api/chatBot/chatBot')
 
-let typesDocs = ['checklists', 'manuals', 'open-process', 'others']
+let typesDocs = ['checklist', 'manual', 'open-process', 'other']
 
 
 /**
@@ -82,8 +89,9 @@ module.exports = function (server) {
                         file = {
                             'name': element.slice(element.indexOf('- ')+2),
                             'url': process.env.SERVICE_URL + '/documents/' + element,
-                            'type-doc': typesDocs[parseInt(element.slice(0, element.indexOf(' -'))) - 1],
-                            'extension': element.slice(element.lastIndexOf('.') + 1, element.length)
+                            'type_doc': typesDocs[parseInt(element.slice(0, element.indexOf(' -'))) - 1],
+                            'extension': element.slice(element.lastIndexOf('.') + 1, element.length),
+                            'description': 'Se tratando de clubes, o Galo é o maior de todos e isso não há o que discutir.'
                         }
 
                         resp['files'].push(file)

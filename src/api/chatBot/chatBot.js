@@ -60,12 +60,6 @@ recoverOrCreateChat = (input) => new Promise((resolve, reject) => {
     
 })
 
-/*
-rebuildIntentsEntitysContext = (watsonObjec) => new Promise((resolve, reject) =>{
-
-})
-**/
-
 
 /**
  * Principal função do módulo, recebe um input do usuário, verifica se o mesmo já tem uma conversa iniciada, envia a mensagem para o Watson, trata a resposta
