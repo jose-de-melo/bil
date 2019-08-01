@@ -1,5 +1,5 @@
 {
-"docs":[
+"list":[
         {
             "name": "Checklist - Adesões SRP",
             "extension": ".docx",
@@ -16,126 +16,126 @@
 
         {
             "name": "Checklist - Inexigibilidades",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de inexigibilidade." 
         },
 
         {
             "name": "Cartilha: Como Elaborar Termo de Referência ou Projeto Básico",
-            "extension": "pdf",
+            "extension": ".pdf",
             "type_doc": "manual",
             "description": "Manual de como elaborar um Termo de Referência ou Projeto Básico." 
         },
 
         {
             "name": "Manual: Seção de Licitação",
-            "extension": "pdf",
+            "extension": ".pdf",
             "type_doc": "manual",
             "description": "Manual da Seção de Licitação do IF Sudeste MG Campus Barbacena." 
         },
 
         {
             "name": "Orçamentos por Telefone",
-            "extension": "odt",
+            "extension": ".odt",
             "type_doc": "abrir processo",
             "description": "Modelo para documento com orçamentos realizados através de telefone." 
         },
 
         {
             "name": "Projeto Básico",
-            "extension": "odt",
+            "extension": ".odt",
             "type_doc": "abrir processo",
             "description": "Modelo para confecção de Projeto Básico, documento onde deve constar todas as especificações essenciais de qualidade e desempenho do objeto da contratação." 
         },
 
         {
             "name": "Solicitação de Orçamento",
-            "extension": "odt",
+            "extension": ".odt",
             "type_doc": "abrir processo",
             "description": "Modelo para Solicitações de Orçamentos para o IF Sudeste MG Campus Barbacena." 
         },
 
         {
             "name": "Solicitação de Compras por Inexigibilidade",
-            "extension": "doc",
+            "extension": ".doc",
             "type_doc": "abrir processo",
             "description": "Modelo para solicitação de compras através de Inexigibilidade." 
         },
 
         {
             "name": "Solicitação de Compras ou Serviços",
-            "extension": "doc",
+            "extension": ".doc",
             "type_doc": "abrir processo",
             "description": "Modelo para solicitação de compras ou contratação de serviços." 
         },
 
         {
             "name": "Termo de Referência",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "abrir processo",
             "description": "Modelo para termo de referência, documento que deverá conter elementos capazes de propiciar a avaliação do custo pela Administração, diante de orçamento detalhado, considerando os preços praticados no mercado, a definição dos métodos, a estratégia de suprimento e o prazo de execução do contrato." 
         },
 
         {
             "name": "Ata de Registro de Preço",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "outros",
             "description": "Modelo para confecção de Ata de Registro de Preços, documento vinculativo, obrigacional, com características de compromisso para futura contratação, onde se registram os preços, fornecedores, órgãos participantes e condições a serem praticadas, conforme as disposições contidas no instrumento convocatório e propostas apresentadas." 
         },
 
         {
             "name": "Modelo de Proposta",
-            "extension": "odt",
+            "extension": ".odt",
             "type_doc": "outros",
             "description": "Modelo para proposta afim de facilitar o trabalho das empresas interessadas, admitindo-se adaptações e acréscimos que melhor se ajustem à proposta a ser formulada."
         },
 
         {
             "name": "Formalização de Demanda",
-            "extension": "odt",
+            "extension": ".odt",
             "type_doc": "abrir processo",
             "description": "Modelo para Formalização de Demanda, documento que inicia o processo de contratação de serviços, tal como preconiza a nova IN nº 05/2017."
         },
 
         {
             "name": "Checklist - Serviços de Tecnologia da Informação",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de contratação de serviços de tecnologia de informação."
         },
 
         {
             "name": "Checklist - Contratações diretas de pequeno valor",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de contratação direta de pequeno valor."
         },
 
         {
             "name": "Checklist - Contratações diretas",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de contratação direta."
         },
 
         {
             "name": "Checklist - Pregão Eletrônico",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de pregão eletrônico."
         },
 
         {
             "name": "Checklist - Concorrência SRP",
-            "extension": "docx",
+            "extension": ".docx",
             "type_doc": "checklist",
             "description": "Lista de itens previamente estabelecida para certificar as condições de um processo de concorrência SRP."
         },
 
         {
             "name": "Manual: Planilha de Custos de Terceirização",
-            "extension": "PDF",
+            "extension": ".PDF",
             "type_doc": "manual",
             "description": "Manual para elaboração de planilha de custos para terceirização."
         }
